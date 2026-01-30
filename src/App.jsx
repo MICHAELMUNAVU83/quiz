@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from "react";
 
+// App assets
+import logoImg from "./assets/logo.svg";
+import homeScreenImg from "./assets/Home – 1.png";
+import startGameImg from "./assets/Start-Game.png";
+import gameQuestionsImg from "./assets/GameQustionsScreen.png";
+import questionOpenedImg from "./assets/Question-Opend.png";
+import answerImg from "./assets/Answer.png";
+import helpCardImg from "./assets/Help-Card.png";
+import profileImg from "./assets/Profile.png";
+
 // Translations
 const translations = {
   ar: {
@@ -312,49 +322,48 @@ const translations = {
   },
 };
 
-// App Screenshots Data with image paths
-// NOTE: Replace these paths with your actual hosted image URLs
+// App Screenshots Data (using imported assets)
 const screenshots = [
   {
     id: 1,
     title: { ar: "الصفحة الرئيسية", en: "Home Screen" },
-    image: "/screenshots/Home.png", // Home___1.png
+    image: homeScreenImg,
     isPortrait: true,
   },
   {
     id: 2,
     title: { ar: "إعدادات اللعبة", en: "Game Settings" },
-    image: "/screenshots/Start-Game.png",
+    image: startGameImg,
     isPortrait: true,
   },
   {
     id: 3,
     title: { ar: "شاشة الأسئلة", en: "Questions Board" },
-    image: "/screenshots/GameQuestionsScreen.png",
+    image: gameQuestionsImg,
     isPortrait: false,
   },
   {
     id: 4,
     title: { ar: "عرض السؤال", en: "Question View" },
-    image: "/screenshots/Question-Opened.png",
+    image: questionOpenedImg,
     isPortrait: false,
   },
   {
     id: 5,
     title: { ar: "الإجابة", en: "Answer" },
-    image: "/screenshots/Answer.png",
+    image: answerImg,
     isPortrait: false,
   },
   {
     id: 6,
     title: { ar: "الصلاحيات", en: "Help Cards" },
-    image: "/screenshots/Help-Card.png",
+    image: helpCardImg,
     isPortrait: false,
   },
   {
     id: 7,
     title: { ar: "الملف الشخصي", en: "Profile" },
-    image: "/screenshots/Profile.png",
+    image: profileImg,
     isPortrait: true,
   },
 ];
@@ -386,9 +395,11 @@ function Navigation({ lang, setLang, currentPage, setCurrentPage, t }) {
             className="flex items-center gap-3 cursor-pointer group"
             onClick={() => setCurrentPage("home")}
           >
-            <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-2xl flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-yellow-500/30">
-              <span className="text-2xl">❓</span>
-            </div>
+            <img
+              src={logoImg}
+              alt=""
+              className="w-12 h-12 object-contain transform group-hover:rotate-12 transition-transform duration-300"
+            />
             <span className="text-2xl font-black text-white hidden sm:block">
               {lang === "ar" ? "عليك الدور" : "Your Turn"}
             </span>
@@ -498,7 +509,7 @@ function HeroSection({ t, lang }) {
       className="min-h-screen relative overflow-hidden flex items-center"
     >
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
+      <div className="absolute inset-0 ">
         {/* Floating Elements */}
         <div className="absolute top-20 left-10 w-72 h-72 bg-yellow-500/10 rounded-full blur-3xl animate-pulse" />
         <div
@@ -524,11 +535,11 @@ function HeroSection({ t, lang }) {
         ))}
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <div className="relative w-full px-4 sm:px-6 lg:ps-8 lg:pe-0 pt-32 pb-20">
+        <div className="grid lg:grid-cols-[minmax(0,32rem)_1fr] gap-12 lg:gap-16 items-center">
           {/* Text Content */}
           <div
-            className={`space-y-8 ${lang === "ar" ? "text-right" : "text-left"}`}
+            className={`space-y-8 ${lang === "ar" ? "text-right lg:order-2" : "text-left lg:order-1"}`}
           >
             <div className="inline-block">
               <span className="px-4 py-2 bg-yellow-500/20 border border-yellow-500/30 rounded-full text-yellow-400 text-sm font-bold">
@@ -609,93 +620,23 @@ function HeroSection({ t, lang }) {
             </div>
           </div>
 
-          {/* Phone Mockup */}
-          <div className="relative flex justify-center lg:justify-end">
+          {/* Phone Mockup - extends to viewport edge on large screens */}
+          <div className={`relative flex justify-center min-w-0 lg:pe-0 ${lang === "ar" ? "lg:order-1 lg:justify-start" : "lg:order-2 lg:justify-end"}`}>
             <div className="relative">
               {/* Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/30 to-blue-500/30 blur-3xl rounded-full transform scale-150" />
 
               {/* Phone Frame */}
               <div className="relative w-72 sm:w-80 h-[580px] sm:h-[640px] bg-slate-800 rounded-[3rem] p-3 shadow-2xl shadow-black/50 border-4 border-slate-700">
-                {/* Phone Screen */}
-                <div className="w-full h-full bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 rounded-[2.5rem] overflow-hidden relative">
+                {/* Phone Screen - Home screen screenshot */}
+                <div className="w-full h-full rounded-[2.5rem] overflow-hidden relative bg-slate-900">
                   {/* Notch */}
                   <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-7 bg-slate-800 rounded-b-2xl z-10" />
-
-                  {/* App Content Preview */}
-                  <div className="pt-12 px-4 h-full flex flex-col items-center text-center">
-                    {/* Logo */}
-                    <div className="mt-4 mb-6">
-                      <h2
-                        className="text-3xl font-black text-yellow-400"
-                        style={{ fontFamily: "Arial" }}
-                      >
-                        عليك الدور!
-                      </h2>
-                      <p className="text-slate-400 text-sm mt-2">
-                        نتايج آخر 24 ساعة
-                      </p>
-                    </div>
-
-                    {/* Leaderboard Preview */}
-                    <div className="flex items-end justify-center gap-4 mb-6">
-                      <div className="flex flex-col items-center">
-                        <div className="w-16 h-16 bg-gradient-to-br from-slate-600 to-slate-700 rounded-full flex items-center justify-center border-2 border-slate-500">
-                          <span className="text-xl">🥉</span>
-                        </div>
-                        <span className="text-white text-xs mt-2 font-bold">
-                          9200
-                        </span>
-                      </div>
-                      <div className="flex flex-col items-center -mt-4">
-                        <div className="w-20 h-20 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-full flex items-center justify-center border-4 border-yellow-300 shadow-lg shadow-yellow-500/30">
-                          <span className="text-2xl">🥇</span>
-                        </div>
-                        <span className="text-yellow-400 text-sm mt-2 font-black">
-                          18000
-                        </span>
-                      </div>
-                      <div className="flex flex-col items-center">
-                        <div className="w-16 h-16 bg-gradient-to-br from-slate-500 to-slate-600 rounded-full flex items-center justify-center border-2 border-slate-400">
-                          <span className="text-xl">🥈</span>
-                        </div>
-                        <span className="text-white text-xs mt-2 font-bold">
-                          12400
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Team List Preview */}
-                    <div className="w-full space-y-3 px-2">
-                      {[
-                        { name: "القشران", score: "9000" },
-                        { name: "الخيمة", score: "8900" },
-                        { name: "الوحووش", score: "7000" },
-                      ].map((team, i) => (
-                        <div
-                          key={i}
-                          className="flex items-center justify-between bg-slate-800/50 rounded-xl p-3 border border-slate-700/50"
-                        >
-                          <span className="bg-sky-500 text-white text-xs px-3 py-1 rounded-lg font-bold">
-                            {team.score}
-                          </span>
-                          <div className="flex items-center gap-2">
-                            <span className="text-white text-sm font-bold">
-                              {team.name}
-                            </span>
-                            <div className="w-8 h-8 bg-yellow-500/20 rounded-lg border border-yellow-500/30" />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Play Button */}
-                    <div className="mt-auto mb-8">
-                      <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-2xl flex items-center justify-center shadow-lg shadow-yellow-500/30">
-                        <span className="text-2xl">🎮</span>
-                      </div>
-                    </div>
-                  </div>
+                  <img
+                    src={homeScreenImg}
+                    alt=""
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
               </div>
 
@@ -864,52 +805,7 @@ function HowToPlaySection({ t, lang }) {
 // Screenshots Section with Real Images
 function ScreenshotsSection({ t, lang }) {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  // Placeholder screenshots data with icons for fallback
-  const screenshotData = [
-    {
-      id: 1,
-      title: { ar: "الصفحة الرئيسية", en: "Home Screen" },
-      icon: "🏠",
-      isPortrait: true,
-    },
-    {
-      id: 2,
-      title: { ar: "إعدادات اللعبة", en: "Game Settings" },
-      icon: "⚙️",
-      isPortrait: true,
-    },
-    {
-      id: 3,
-      title: { ar: "شاشة الأسئلة", en: "Questions Board" },
-      icon: "📋",
-      isPortrait: false,
-    },
-    {
-      id: 4,
-      title: { ar: "عرض السؤال", en: "Question View" },
-      icon: "❓",
-      isPortrait: false,
-    },
-    {
-      id: 5,
-      title: { ar: "الإجابة", en: "Answer" },
-      icon: "✅",
-      isPortrait: false,
-    },
-    {
-      id: 6,
-      title: { ar: "الصلاحيات", en: "Help Cards" },
-      icon: "🎯",
-      isPortrait: false,
-    },
-    {
-      id: 7,
-      title: { ar: "الملف الشخصي", en: "Profile" },
-      icon: "👤",
-      isPortrait: true,
-    },
-  ];
+  const screenshotData = screenshots;
 
   return (
     <section
@@ -963,20 +859,12 @@ function ScreenshotsSection({ t, lang }) {
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-slate-800 rounded-b-xl z-10" />
                   )}
 
-                  {/* Screenshot Content Placeholder */}
-                  <div className="w-full h-full flex flex-col items-center justify-center p-8">
-                    <div className="w-20 h-20 bg-yellow-500/20 rounded-3xl flex items-center justify-center mb-6 border border-yellow-500/30">
-                      <span className="text-5xl">
-                        {screenshotData[activeIndex].icon}
-                      </span>
-                    </div>
-                    <span className="text-white font-bold text-xl text-center">
-                      {screenshotData[activeIndex].title[lang]}
-                    </span>
-                    <p className="text-slate-400 text-sm mt-2 text-center">
-                      {lang === "ar" ? "صورة من التطبيق" : "App Screenshot"}
-                    </p>
-                  </div>
+                  {/* Screenshot Image */}
+                  <img
+                    src={screenshotData[activeIndex].image}
+                    alt={screenshotData[activeIndex].title[lang]}
+                    className="w-full h-full object-cover object-top"
+                  />
                 </div>
               </div>
             </div>
@@ -995,19 +883,19 @@ function ScreenshotsSection({ t, lang }) {
                 }`}
               >
                 <div
-                  className={`bg-slate-800 rounded-xl p-1.5 border-2 transition-colors duration-300 ${
+                  className={`bg-slate-800 rounded-xl p-1.5 border-2 transition-colors duration-300 overflow-hidden ${
                     index === activeIndex
                       ? "border-yellow-400"
                       : "border-slate-700 hover:border-slate-500"
                   }`}
                 >
-                  <div
-                    className={`bg-gradient-to-b from-slate-900 to-blue-950 rounded-lg flex items-center justify-center ${
+                  <img
+                    src={screenshot.image}
+                    alt=""
+                    className={`object-cover object-top rounded-lg ${
                       screenshot.isPortrait ? "w-12 h-20" : "w-20 h-12"
                     }`}
-                  >
-                    <span className="text-xl">{screenshot.icon}</span>
-                  </div>
+                  />
                 </div>
                 {index === activeIndex && (
                   <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-2 h-2 bg-yellow-400 rounded-full" />
@@ -1220,9 +1108,11 @@ function Footer({ t, lang, setCurrentPage }) {
         >
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-xl flex items-center justify-center">
-              <span className="text-xl">❓</span>
-            </div>
+            <img
+              src={logoImg}
+              alt=""
+              className="w-10 h-10 object-contain"
+            />
             <span className="text-xl font-black text-white">
               {lang === "ar" ? "عليك الدور" : "Your Turn"}
             </span>
@@ -1377,7 +1267,7 @@ export default function App() {
 
   return (
     <div
-      className={`min-h-screen bg-slate-900 ${lang === "ar" ? "font-arabic" : ""}`}
+      className={`min-h-screen w-full bg-slate-900 ${lang === "ar" ? "font-arabic" : ""}`}
       dir={lang === "ar" ? "rtl" : "ltr"}
     >
       <style>{`
