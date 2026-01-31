@@ -110,52 +110,94 @@ const translations = {
         terms: "شروط الاستخدام",
       },
       privacyContent: {
-        intro: "نحن نقدر خصوصيتك ونلتزم بحماية بياناتك الشخصية.",
+        intro:
+          "نحن في تطبيق عليك الدور نحرص على خصوصية المستخدمين ونلتزم بحماية بياناتهم. باستخدامك للتطبيق، فإنك توافق على سياسة الخصوصية التالية:",
         sections: [
           {
-            title: "جمع البيانات",
+            title: "1. المعلومات التي نجمعها",
             content:
-              "نقوم بجمع البيانات الضرورية فقط لتحسين تجربتك في التطبيق، مثل اسم المستخدم والبريد الإلكتروني ونتائج الألعاب.",
+              "قد نقوم بجمع المعلومات التالية عند التسجيل أو استخدام التطبيق: رقم الهاتف، الاسم، اسم الفريق، الصورة الشخصية (في حال قام المستخدم برفعها اختيارياً)، معلومات تقنية عامة مثل نوع الجهاز ونظام التشغيل وبيانات الاستخدام.",
           },
           {
-            title: "استخدام البيانات",
+            title: "2. كيفية استخدام المعلومات",
             content:
-              "نستخدم بياناتك لتحسين خدماتنا وتقديم تجربة مخصصة لك. لن نشارك بياناتك مع أي طرف ثالث دون موافقتك.",
+              "نستخدم المعلومات للأغراض التالية: إنشاء الحساب وتشغيل اللعبة، تنظيم الفرق وعرض النتائج داخل التطبيق، تحسين تجربة المستخدم وتطوير المحتوى، التواصل مع المستخدم عند الحاجة، استخدام أسماء الفرق أو نتائج الألعاب (بدون بيانات شخصية حساسة) في الحملات الإعلامية أو التسويقية الخاصة بالتطبيق.",
           },
           {
-            title: "أمان البيانات",
+            title: "3. الاستخدام التسويقي",
             content:
-              "نتخذ جميع الإجراءات الأمنية اللازمة لحماية بياناتك من الوصول غير المصرح به.",
+              "قد يتم استخدام أسماء الفرق أو نتائج اللعب أو إحصائيات عامة لأغراض تسويقية. لن يتم استخدام رقم الهاتف أو الصورة الشخصية أو الاسم الحقيقي في أي حملة تسويقية بدون موافقة صريحة من المستخدم.",
           },
           {
-            title: "حقوقك",
+            title: "4. مشاركة المعلومات",
             content:
-              "يحق لك طلب حذف بياناتك أو تعديلها في أي وقت عن طريق التواصل معنا.",
+              "لا نقوم ببيع أو تأجير بيانات المستخدمين لأي طرف ثالث. قد يتم التعامل مع مزودي خدمات خارجيين (مثل خدمات الدفع أو التحليلات) بما يتوافق مع سياساتهم.",
+          },
+          {
+            title: "5. الأطفال",
+            content:
+              "التطبيق مناسب للكبار والصغار. لا يحتوي على محتوى مخصص للكبار فقط. لا يتم جمع معلومات شخصية إضافية من الأطفال عن قصد خارج ما يلزم لتشغيل التطبيق.",
+          },
+          {
+            title: "6. حماية البيانات",
+            content:
+              "نلتزم باتخاذ إجراءات أمنية مناسبة لحماية البيانات من الوصول أو الاستخدام غير المصرح به.",
+          },
+          {
+            title: "7. التعديلات",
+            content:
+              "قد يتم تحديث سياسة الخصوصية من وقت لآخر، وسيتم نشر التعديلات داخل التطبيق.",
           },
         ],
       },
       termsContent: {
-        intro: 'باستخدامك لتطبيق "عليك الدور"، فإنك توافق على الشروط التالية:',
+        intro:
+          "مرحبًا بك في تطبيق عليك الدور. باستخدامك للتطبيق، فإنك توافق على الشروط التالية:",
         sections: [
           {
-            title: "الاستخدام المقبول",
+            title: "1. وصف الخدمة",
             content:
-              "يجب استخدام التطبيق للأغراض الترفيهية فقط وبطريقة تحترم الآخرين.",
+              "تطبيق ترفيهي يعتمد على ألعاب أسئلة ثقافية وفكرية ورياضية وفنية وغيرها. يتم إنشاء لعبة جديدة في كل مرة تحتوي على 60 سؤالًا مختلفًا. يمكن اللعب بفريقين أو أكثر، والفريق الذي يحقق أعلى عدد من الإجابات الصحيحة هو الفائز.",
           },
           {
-            title: "حساب المستخدم",
+            title: "2. الحساب والتسجيل",
             content:
-              "أنت مسؤول عن الحفاظ على سرية حسابك وكلمة المرور الخاصة بك.",
+              "يتطلب استخدام التطبيق تسجيل المستخدم برقم هاتف صحيح. المستخدم مسؤول عن صحة البيانات التي يقوم بإدخالها.",
           },
           {
-            title: "المحتوى",
+            title: "3. الاستخدام المجاني والمدفوع",
             content:
-              "جميع الأسئلة والمحتوى في التطبيق ملك لنا ولا يجوز نسخها أو توزيعها.",
+              "يحصل كل مستخدم على لعبة واحدة مجانية عند أول استخدام. يمكن بعد ذلك شراء رصيد ألعاب لاستخدامه داخل التطبيق.",
           },
           {
-            title: "التعديلات",
+            title: "4. الدفع والاسترجاع",
             content:
-              "نحتفظ بالحق في تعديل هذه الشروط في أي وقت، وسيتم إخطارك بأي تغييرات.",
+              "جميع عمليات الشراء نهائية وغير قابلة للاسترجاع. أي مبلغ مدفوع يتحول إلى رصيد ألعاب داخل التطبيق. المستخدم مسؤول بالكامل عن قرارات الشراء.",
+          },
+          {
+            title: "5. صلاحية الرصيد",
+            content:
+              "رصيد الألعاب صالح لمدة سنة واحدة من تاريخ الشراء. في حال عدم استخدام الرصيد خلال هذه المدة، ينتهي تلقائيًا دون أي تعويض.",
+          },
+          {
+            title: "6. المحتوى والسلوك",
+            content:
+              "يمنع إساءة استخدام التطبيق أو محاولة التحايل أو التلاعب بالنظام. يمنع استخدام التطبيق لأي أغراض غير قانونية.",
+          },
+          {
+            title: "7. الملكية الفكرية",
+            content:
+              "جميع حقوق المحتوى، الأسئلة، التصاميم، والأفكار محفوظة لتطبيق عليك الدور. لا يجوز نسخ أو إعادة استخدام أي جزء من التطبيق بدون إذن.",
+          },
+          {
+            title: "8. إخلاء المسؤولية",
+            content:
+              "التطبيق يُقدَّم كما هو دون أي ضمانات. لا تتحمل إدارة التطبيق أي مسؤولية عن أي أضرار ناتجة عن سوء الاستخدام.",
+          },
+          {
+            title: "9. التعديلات",
+            content:
+              "يحق لإدارة التطبيق تعديل شروط الاستخدام في أي وقت، ويُعتبر استمرار استخدام التطبيق موافقة على تلك التعديلات.",
           },
         ],
       },
@@ -268,53 +310,93 @@ const translations = {
       },
       privacyContent: {
         intro:
-          "We value your privacy and are committed to protecting your personal data.",
+          "At Alaik Aldawr app, we respect users' privacy and are committed to protecting their data. By using the app, you agree to the following Privacy Policy:",
         sections: [
           {
-            title: "Data Collection",
+            title: "1. Information We Collect",
             content:
-              "We only collect necessary data to improve your app experience, such as username, email, and game results.",
+              "We may collect the following information when registering or using the app: Phone number, Name, Team name, Profile picture (if uploaded optionally by the user), General technical information such as device type, operating system, and usage data.",
           },
           {
-            title: "Data Usage",
+            title: "2. How We Use the Information",
             content:
-              "We use your data to improve our services and provide a personalized experience. We will not share your data with third parties without your consent.",
+              "We use the collected information for the following purposes: Creating user accounts and operating the game, Organizing teams and displaying results within the app, Improving user experience and developing content, Communicating with users when necessary, Using team names, game results, or general statistics (without sensitive personal data) in media or marketing campaigns related to the app.",
           },
           {
-            title: "Data Security",
+            title: "3. Marketing Use",
             content:
-              "We take all necessary security measures to protect your data from unauthorized access.",
+              "Team names, game results, or general statistics may be used for marketing purposes. Phone numbers, profile pictures, or real names will not be used in any marketing campaigns without the user's explicit consent.",
           },
           {
-            title: "Your Rights",
+            title: "4. Information Sharing",
             content:
-              "You have the right to request deletion or modification of your data at any time by contacting us.",
+              "We do not sell or rent users' data to any third party. We may work with third-party service providers (such as payment or analytics services) in accordance with their own privacy policies.",
+          },
+          {
+            title: "5. Children",
+            content:
+              "The app is suitable for both adults and children. It does not contain adult-only content. We do not intentionally collect additional personal data from children beyond what is required to operate the app.",
+          },
+          {
+            title: "6. Data Protection",
+            content:
+              "We take appropriate security measures to protect user data from unauthorized access or misuse.",
+          },
+          {
+            title: "7. Changes to This Policy",
+            content:
+              "This Privacy Policy may be updated from time to time. Any changes will be published within the app.",
           },
         ],
       },
       termsContent: {
         intro:
-          'By using "It\'s Your Turn" app, you agree to the following terms:',
+          "Welcome to Alaik Aldawr app. By using the app, you agree to the following Terms of Use:",
         sections: [
           {
-            title: "Acceptable Use",
+            title: "1. Service Description",
             content:
-              "The app must be used for entertainment purposes only and in a way that respects others.",
+              "The app is an entertainment-based question game covering cultural, intellectual, sports, artistic, and other topics. A new game is generated each time, consisting of 60 different questions. The game can be played by two teams or more, and the team with the highest number of correct answers wins.",
           },
           {
-            title: "User Account",
+            title: "2. Account Registration",
             content:
-              "You are responsible for maintaining the confidentiality of your account and password.",
+              "Using the app requires registering with a valid phone number. The user is responsible for ensuring the accuracy of the information provided.",
           },
           {
-            title: "Content",
+            title: "3. Free and Paid Use",
             content:
-              "All questions and content in the app are our property and may not be copied or distributed.",
+              "Each user receives one free game upon first use. Additional games can be played by purchasing game credits within the app.",
           },
           {
-            title: "Modifications",
+            title: "4. Payments and Refunds",
             content:
-              "We reserve the right to modify these terms at any time, and you will be notified of any changes.",
+              "All purchases are final and non-refundable. Any paid amount is converted into in-app game credits. The user is fully responsible for purchase decisions.",
+          },
+          {
+            title: "5. Credit Validity",
+            content:
+              "Game credits are valid for one year from the date of purchase. Unused credits will expire automatically after this period without compensation.",
+          },
+          {
+            title: "6. Content and Behavior",
+            content:
+              "Misuse of the app or attempts to manipulate or exploit the system are prohibited. The app may not be used for any illegal purposes.",
+          },
+          {
+            title: "7. Intellectual Property",
+            content:
+              "All content, questions, designs, and ideas are the property of Alaik Aldawr app. No part of the app may be copied or reused without permission.",
+          },
+          {
+            title: "8. Disclaimer",
+            content:
+              "The app is provided \"as is\" without any warranties. The app management is not responsible for any damages resulting from misuse.",
+          },
+          {
+            title: "9. Modifications",
+            content:
+              "The app management reserves the right to modify these Terms of Use at any time. Continued use of the app constitutes acceptance of any changes.",
           },
         ],
       },
@@ -585,7 +667,12 @@ function HeroSection({ t, lang }) {
 
             {/* App Store Badges */}
             <div className="flex gap-4 pt-4">
-              <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-xl border border-slate-700">
+              <a
+                href="http://apple.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 hover:bg-slate-700/50 rounded-xl border border-slate-700 transition-colors"
+              >
                 <svg
                   className="w-8 h-8 text-white"
                   fill="currentColor"
@@ -599,8 +686,13 @@ function HeroSection({ t, lang }) {
                   </div>
                   <div className="text-sm font-bold text-white">App Store</div>
                 </div>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 rounded-xl border border-slate-700">
+              </a>
+              <a
+                href="http://googleplay.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-4 py-2 bg-slate-800/50 hover:bg-slate-700/50 rounded-xl border border-slate-700 transition-colors"
+              >
                 <svg
                   className="w-8 h-8 text-white"
                   fill="currentColor"
@@ -616,7 +708,7 @@ function HeroSection({ t, lang }) {
                     Google Play
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
 
@@ -1043,7 +1135,7 @@ function ContactSection({ t, lang }) {
 
           {/* Phone Card */}
           <a
-            href="tel:+96512345678"
+            href="tel:+96560650544"
             className="group p-8 bg-slate-800/30 hover:bg-slate-800/50 backdrop-blur-sm rounded-3xl border border-slate-700/50 hover:border-yellow-500/30 transition-all duration-500 hover:-translate-y-2 text-center"
           >
             <div className="w-16 h-16 bg-gradient-to-br from-yellow-400/20 to-amber-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 border border-yellow-500/20">
@@ -1053,11 +1145,11 @@ function ContactSection({ t, lang }) {
               {t.contact.phone}
             </h3>
             <p className="text-yellow-400 font-medium" dir="ltr">
-              +965 1234 5678
+              +965 6065 0544
             </p>
           </a>
 
-          {/* Social Card */}
+          {/* Social Card - Instagram only */}
           <div className="group p-8 bg-slate-800/30 hover:bg-slate-800/50 backdrop-blur-sm rounded-3xl border border-slate-700/50 hover:border-yellow-500/30 transition-all duration-500 hover:-translate-y-2 text-center">
             <div className="w-16 h-16 bg-gradient-to-br from-yellow-400/20 to-amber-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 border border-yellow-500/20">
               <span className="text-3xl">🌐</span>
@@ -1067,20 +1159,11 @@ function ContactSection({ t, lang }) {
             </h3>
             <div className="flex justify-center gap-4">
               <a
-                href="#"
+                href="https://www.instagram.com/3laikedoor"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-slate-700/50 hover:bg-slate-600/50 rounded-xl flex items-center justify-center text-white hover:text-yellow-400 transition-all duration-300"
-              >
-                <svg
-                  className="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
-                </svg>
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-slate-700/50 hover:bg-slate-600/50 rounded-xl flex items-center justify-center text-white hover:text-yellow-400 transition-all duration-300"
+                aria-label="Instagram"
               >
                 <svg
                   className="w-5 h-5"
@@ -1249,8 +1332,8 @@ function PrivacyPage({ t, lang, setCurrentPage }) {
           <div className="mt-12 pt-8 border-t border-slate-700/50">
             <p className="text-slate-500 text-sm">
               {lang === "ar"
-                ? "آخر تحديث: يناير 2024"
-                : "Last updated: January 2024"}
+                ? "آخر تحديث: يناير 2026"
+                : "Last updated: January 2026"}
             </p>
           </div>
         </div>
