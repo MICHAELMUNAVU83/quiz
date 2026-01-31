@@ -1348,6 +1348,11 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState("home");
   const t = translations[lang];
 
+  // Scroll to top when navigating to privacy policy or back to home
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
+
   return (
     <div
       className={`min-h-screen w-full bg-slate-900 ${lang === "ar" ? "font-arabic" : ""}`}
