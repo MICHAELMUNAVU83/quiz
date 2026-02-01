@@ -451,7 +451,7 @@ const screenshots = [
 ];
 
 // Navigation Component
-function Navigation({ lang, setLang, currentPage, setCurrentPage, t }) {
+function Navigation({ lang, setLang, currentPage, navigateTo, t }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -475,7 +475,7 @@ function Navigation({ lang, setLang, currentPage, setCurrentPage, t }) {
           {/* Logo */}
           <div
             className="flex items-center gap-3 cursor-pointer group"
-            onClick={() => setCurrentPage("home")}
+            onClick={() => navigateTo("home", "")}
           >
             <img
               src={logoImg}
@@ -494,9 +494,9 @@ function Navigation({ lang, setLang, currentPage, setCurrentPage, t }) {
                 key={key}
                 onClick={() => {
                   if (key === "privacy") {
-                    setCurrentPage("privacy");
+                    navigateTo("privacy", "privacy");
                   } else {
-                    setCurrentPage("home");
+                    navigateTo("home", "");
                     setTimeout(() => {
                       document
                         .getElementById(key)
@@ -561,9 +561,9 @@ function Navigation({ lang, setLang, currentPage, setCurrentPage, t }) {
                 onClick={() => {
                   setMobileMenuOpen(false);
                   if (key === "privacy") {
-                    setCurrentPage("privacy");
+                    navigateTo("privacy", "privacy");
                   } else {
-                    setCurrentPage("home");
+                    navigateTo("home", "");
                     setTimeout(() => {
                       document
                         .getElementById(key)
@@ -1182,7 +1182,7 @@ function ContactSection({ t, lang }) {
 }
 
 // Footer
-function Footer({ t, lang, setCurrentPage }) {
+function Footer({ t, lang, navigateTo }) {
   return (
     <footer className="py-12 bg-slate-950 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1201,20 +1201,28 @@ function Footer({ t, lang, setCurrentPage }) {
             </span>
           </div>
 
-          {/* Links */}
+          {/* Links - direct URLs for App Store / Google Play */}
           <div className="flex items-center gap-6">
-            <button
-              onClick={() => setCurrentPage("privacy")}
+            <a
+              href="#privacy"
+              onClick={(e) => {
+                e.preventDefault();
+                navigateTo("privacy", "privacy");
+              }}
               className="text-slate-400 hover:text-yellow-400 transition-colors duration-300"
             >
               {t.footer.privacy}
-            </button>
-            <button
-              onClick={() => setCurrentPage("privacy")}
+            </a>
+            <a
+              href="#terms"
+              onClick={(e) => {
+                e.preventDefault();
+                navigateTo("privacy", "terms");
+              }}
               className="text-slate-400 hover:text-yellow-400 transition-colors duration-300"
             >
               {t.footer.terms}
-            </button>
+            </a>
           </div>
 
           {/* Copyright */}
@@ -1225,16 +1233,38 @@ function Footer({ t, lang, setCurrentPage }) {
   );
 }
 
+// Get active tab from URL hash (#privacy or #terms)
+function getPrivacyTabFromHash() {
+  const hash = window.location.hash.slice(1).toLowerCase();
+  return hash === "terms" ? "terms" : "privacy";
+}
+
 // Privacy & Terms Page
-function PrivacyPage({ t, lang, setCurrentPage }) {
-  const [activeTab, setActiveTab] = useState("privacy");
+function PrivacyPage({ t, lang, navigateTo }) {
+  const [activeTab, setActiveTab] = useState(getPrivacyTabFromHash);
+
+  // Sync tab with URL hash (e.g. browser back/forward or direct link)
+  useEffect(() => {
+    const handler = () => setActiveTab(getPrivacyTabFromHash());
+    window.addEventListener("hashchange", handler);
+    return () => window.removeEventListener("hashchange", handler);
+  }, []);
+
+  const goToTab = (tab) => {
+    setActiveTab(tab);
+    window.location.hash = tab;
+  };
+
+  const goHome = () => {
+    navigateTo("home", "");
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 pt-24 pb-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Button */}
         <button
-          onClick={() => setCurrentPage("home")}
+          onClick={goHome}
           className={`flex items-center gap-2 text-slate-400 hover:text-yellow-400 transition-colors duration-300 mb-8 ${lang === "ar" ? "flex-row-reverse" : ""}`}
         >
           <svg
@@ -1263,7 +1293,7 @@ function PrivacyPage({ t, lang, setCurrentPage }) {
         {/* Tabs */}
         <div className="flex gap-4 mb-8">
           <button
-            onClick={() => setActiveTab("privacy")}
+            onClick={() => goToTab("privacy")}
             className={`px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
               activeTab === "privacy"
                 ? "bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900"
@@ -1273,7 +1303,7 @@ function PrivacyPage({ t, lang, setCurrentPage }) {
             {t.privacy.tabs.privacy}
           </button>
           <button
-            onClick={() => setActiveTab("terms")}
+            onClick={() => goToTab("terms")}
             className={`px-6 py-3 rounded-xl font-bold transition-all duration-300 ${
               activeTab === "terms"
                 ? "bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-900"
@@ -1342,16 +1372,40 @@ function PrivacyPage({ t, lang, setCurrentPage }) {
   );
 }
 
+// Initial page from URL hash (for direct links to privacy/terms)
+function getInitialPage() {
+  if (typeof window === "undefined") return "home";
+  const hash = window.location.hash.slice(1).toLowerCase();
+  return hash === "privacy" || hash === "terms" ? "privacy" : "home";
+}
+
 // Main App Component
 export default function App() {
   const [lang, setLang] = useState("ar");
-  const [currentPage, setCurrentPage] = useState("home");
+  const [currentPage, setCurrentPage] = useState(getInitialPage);
   const t = translations[lang];
+
+  // Sync page with URL hash (direct link or browser back/forward)
+  useEffect(() => {
+    const handler = () => {
+      const hash = window.location.hash.slice(1).toLowerCase();
+      if (hash === "privacy" || hash === "terms") setCurrentPage("privacy");
+      else if (hash === "" || hash === "home") setCurrentPage("home");
+    };
+    window.addEventListener("hashchange", handler);
+    return () => window.removeEventListener("hashchange", handler);
+  }, []);
 
   // Scroll to top when navigating to privacy policy or back to home
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
+
+  // Navigate to a page and update URL hash for shareable/store links
+  const navigateTo = (page, hash = "") => {
+    setCurrentPage(page);
+    window.location.hash = hash;
+  };
 
   return (
     <div
@@ -1401,7 +1455,7 @@ export default function App() {
         lang={lang}
         setLang={setLang}
         currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
+        navigateTo={navigateTo}
         t={t}
       />
 
@@ -1413,12 +1467,12 @@ export default function App() {
           <ScreenshotsSection t={t} lang={lang} />
           <StatsSection t={t} lang={lang} />
           <ContactSection t={t} lang={lang} />
-          <Footer t={t} lang={lang} setCurrentPage={setCurrentPage} />
+          <Footer t={t} lang={lang} navigateTo={navigateTo} />
         </>
       ) : (
         <>
-          <PrivacyPage t={t} lang={lang} setCurrentPage={setCurrentPage} />
-          <Footer t={t} lang={lang} setCurrentPage={setCurrentPage} />
+          <PrivacyPage t={t} lang={lang} navigateTo={navigateTo} />
+          <Footer t={t} lang={lang} navigateTo={navigateTo} />
         </>
       )}
     </div>
